@@ -2,6 +2,7 @@ package com.scala.devproj.funsuite
 
 import org.scalatest.FunSuite
 
+
 class ValuesTest extends FunSuite {
 
   test(testName = "Should not allow to modify val") {

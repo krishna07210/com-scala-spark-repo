@@ -27,3 +27,8 @@ https://www.dataneb.com/post/loading-json-file-using-spark-scala
 https://www.dataneb.com/post/how-to-convert-rdd-to-dataframe
 https://www.dataneb.com/post/apache-spark-interview-questions
 https://sparkbyexamples.com/spark-rdd-tutorial/
+
+
+---- Examples
+https://github.com/databricks/Spark-The-Definitive-Guide
+https://itnext.io/five-highlights-on-the-spark-3-0-release-ab8775804e4b

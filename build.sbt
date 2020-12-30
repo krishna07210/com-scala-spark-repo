@@ -1,26 +1,21 @@
 name := "com-scala-spark-repo"
 
+organization := "com.spark.learning"
 version := "0.1"
+scalaVersion := "2.12.10"
+autoScalaLibrary := false
+val sparkVersion = "3.0.1"
 
-scalaVersion := "2.11.1"
+val sparkDependencies = Seq(
+  "org.apache.spark" %% "spark-core" % sparkVersion,
+  "org.apache.spark" %% "spark-sql" % sparkVersion
+)
 
-
-//%% asks Sbt to add the current scala version to the artifact
-//You can spark-core_2.11 with % to get the issue solved.
-
-// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-//libraryDependencies += "org.apache.spark" %% "spark-sql" % "1.6.0"
-
-// https://mvnrepository.com/artifact/org.apache.spark/spark-core
-libraryDependencies += "org.apache.spark" %% "spark-core" % "2.3.2"
-
-// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.2"
-
-// https://mvnrepository.com/artifact/org.scalatest/scalatest-funsuite
-libraryDependencies += "org.scalatest" %% "scalatest-funsuite" % "3.0.0-SNAP13"
+val testDependencies = Seq(
+  "org.scalatest" %% "scalatest" % "3.0.8" % Test
+)
 
 
-artifactName := { (sv: ScalaVersion, module: ModuleID, artifact: Artifact) =>
-  artifact.name + "-" + module.revision + "." + artifact.extension
-}
+
+libraryDependencies ++= sparkDependencies ++ testDependencies
+
