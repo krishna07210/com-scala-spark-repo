@@ -1,11 +1,11 @@
-package com.spark.devproj.sparkRDD.dataAnalysis
+package com.spark.devproj.sparkRDD.dataAnalysis.examples1
 
-import org.apache.spark._
-import org.apache.spark.SparkContext._
-import org.apache.log4j._
-import scala.io.Source
 import java.nio.charset.CodingErrorAction
-import scala.io.Codec
+
+import org.apache.log4j.{Level, Logger}
+import org.apache.spark.SparkContext
+
+import scala.io.{Codec, Source}
 
 /**
  * Created by krish on 14-04-2020.
@@ -58,4 +58,3 @@ object PopularMoviesNicer {
   }
 
 }
-

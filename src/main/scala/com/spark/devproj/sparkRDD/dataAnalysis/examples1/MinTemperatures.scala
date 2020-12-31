@@ -1,7 +1,8 @@
-package com.spark.devproj.sparkRDD.dataAnalysis
+package com.spark.devproj.sparkRDD.dataAnalysis.examples1
 
 import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
+
 import scala.math.min
 
 /**

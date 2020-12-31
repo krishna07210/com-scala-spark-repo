@@ -1,4 +1,4 @@
-package com.spark.devproj.spark.examples2
+package com.spark.devproj.sparkRDD.dataAnalysis.examples2
 
 import com.spark.devproj.config.CommonUtils
 import org.apache.spark.sql.SparkSession

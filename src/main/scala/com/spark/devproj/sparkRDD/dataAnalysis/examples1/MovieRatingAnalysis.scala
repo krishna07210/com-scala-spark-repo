@@ -1,13 +1,12 @@
-package com.spark.devproj.sparkRDD.dataAnalysis
+package com.spark.devproj.sparkRDD.dataAnalysis.examples1
 
+import java.io.IOException
 import java.nio.charset.CodingErrorAction
 
 import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
 
-import scala.io.Codec
-import scala.io.Source
-import java.io.IOException
+import scala.io.{Codec, Source}
 
 /**
  * Created by krish on 14-04-2020.

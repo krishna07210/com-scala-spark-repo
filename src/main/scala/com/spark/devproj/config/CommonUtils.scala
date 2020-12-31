@@ -5,7 +5,6 @@ import scala.reflect.io.Directory
 import com.spark.devproj.constants.Constants
 import org.apache.spark.rdd.RDD
 
-
 /**
  * Created by krish on 12-04-2020.
  * Object to return the File path

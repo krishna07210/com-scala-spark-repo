@@ -1,8 +1,7 @@
-package com.spark.devproj.spark.examples1
+package com.spark.devproj.sparkSQL.miscellaneous
 
 import com.spark.devproj.config.CommonUtils.inputFile
-import com.spark.devproj.spark.examples1.HelloDataset.getSparkAppConf
-import com.spark.devproj.spark.examples1.HelloSpark.logger
+import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.logger
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 object HelloSparkSQL extends Serializable {

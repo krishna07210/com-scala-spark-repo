@@ -1,10 +1,8 @@
-package com.spark.devproj.sparksql
+package com.spark.devproj.sparkSQL.miscellaneous
 
 import com.spark.devproj.config.CommonUtils
-import com.spark.devproj.constants.Constants
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import org.apache.spark.sql.{Row, SparkSession}
 
 object DiffWaysDataFrameCreation {
 

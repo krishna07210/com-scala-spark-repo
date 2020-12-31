@@ -1,8 +1,7 @@
-package com.spark.devproj.spark.examples2
+package com.spark.devproj.sparkRDD.dataAnalysis.examples2
 
-import org.apache.spark.sql.SparkSession
 import com.spark.devproj.config.CommonUtils
-import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.SparkSession
 
 /**
  * Create a Spark program to read the airport data from in/airports.text,

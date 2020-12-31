@@ -1,4 +1,4 @@
-package com.spark.devproj.sparkRDD.dataAnalysis
+package com.spark.devproj.sparkRDD.dataAnalysis.examples1
 
 import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 

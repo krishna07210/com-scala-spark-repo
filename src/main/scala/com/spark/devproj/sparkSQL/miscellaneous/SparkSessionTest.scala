@@ -1,6 +1,6 @@
-package com.spark.devproj.sparksql
+package com.spark.devproj.sparkSQL.miscellaneous
 
-import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.SparkSession
 
 object SparkSessionTest {
   def main(args: Array[String]): Unit = {

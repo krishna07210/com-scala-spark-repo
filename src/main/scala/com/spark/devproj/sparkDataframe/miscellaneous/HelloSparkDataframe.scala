@@ -1,22 +1,20 @@
-package com.spark.devproj.spark.examples1
+package com.spark.devproj.sparkDataframe.miscellaneous
 
 import java.util.Properties
 
-import com.spark.devproj.config.CommonUtils
-import com.spark.devproj.config.CommonUtils._
+import com.spark.devproj.config.CommonUtils.inputFile
 import org.apache.log4j.Logger
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 import scala.io.Source
-import scala.util.Properties
 
 /**
  * Input file Name :  survey_sample.csv
  */
 
-object HelloSpark extends Serializable {
-  @transient lazy val logger: Logger = Logger.getLogger(HelloSpark.getClass.getName);
+object HelloSparkDataframe extends Serializable {
+  @transient lazy val logger: Logger = Logger.getLogger(HelloSparkDataframe.getClass.getName);
 
   def main(args: Array[String]): Unit = {
     logger.info("Starting Hello Spark")

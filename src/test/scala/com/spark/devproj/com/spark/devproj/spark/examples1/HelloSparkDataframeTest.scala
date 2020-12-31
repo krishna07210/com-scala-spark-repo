@@ -1,13 +1,13 @@
 package com.spark.devproj.com.spark.devproj.spark.examples1
 
 import com.spark.devproj.config.CommonUtils.inputFile
-import com.spark.devproj.spark.examples1.HelloSpark.{countByCountry, loadSurveyDF}
+import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.{countByCountry, loadSurveyDF}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FunSuite}
 
 import scala.collection.mutable
 
-class HelloSparkTest extends FunSuite with BeforeAndAfterAll {
+class HelloSparkDataframeTest extends FunSuite with BeforeAndAfterAll {
 
   @transient var spark: SparkSession = _
 

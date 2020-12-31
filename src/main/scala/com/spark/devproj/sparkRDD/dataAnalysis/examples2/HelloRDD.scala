@@ -1,13 +1,13 @@
-package com.spark.devproj.spark.examples1
+package com.spark.devproj.sparkRDD.dataAnalysis.examples2
 
 import com.spark.devproj.config.CommonUtils.inputFile
+import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe
+import com.spark.devproj.sparkDatasets.miscellaneous.SurveyRecord
 import org.apache.log4j.Logger
 import org.apache.spark.{SparkConf, SparkContext}
 
-//case class SurveyRecord1(Age: Int, Gender: String, Country: String, state: String)
-
 object HelloRDD extends Serializable {
-  @transient lazy val logger: Logger = Logger.getLogger(HelloSpark.getClass.getName);
+  @transient lazy val logger: Logger = Logger.getLogger(HelloSparkDataframe.getClass.getName);
 
   def main(args: Array[String]): Unit = {
 
