@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
 
 /**
@@ -10,9 +10,7 @@ import org.apache.spark.SparkContext
 object SparkCommands {
 
   def main(args: Array[String]): Unit = {
-
-    val sparkConfig = new SparkConfiguration()
-    val sc: SparkContext = sparkConfig.localConfig("local", "SparkCommand")
+    val sc: SparkContext = SparkConfigs.localConfig("local", "SparkCommand")
     val data = sc.textFile(CommonUtils.inputFile("udata.txt"))
     //    data.foreach(println)
     //Create an RDD through Parallelized Collection

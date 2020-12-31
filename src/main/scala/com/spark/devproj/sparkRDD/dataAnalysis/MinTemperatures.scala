@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
 import scala.math.min
 
@@ -10,17 +10,8 @@ import scala.math.min
  */
 object MinTemperatures {
 
-  def parseLine(line: String) = {
-    val fields = line.toString().split(",")
-    val stationId = fields(0)
-    val entryType = fields(2)
-    val temperature = fields(3).toFloat * 0.1f * (9.0f / 5.0f) + 32.0f
-    (stationId, entryType, temperature)
-  }
-
   def main(args: Array[String]) {
-    val sparkConfig = new SparkConfiguration();
-    val sc: SparkContext = sparkConfig.localConfig("local", "MinTemperatures")
+    val sc: SparkContext = SparkConfigs.localConfig("local", "MinTemperatures")
     val lines = sc.textFile(CommonUtils.inputFile("1800.csv"))
     // Convert to (stationID, entryType, temperature) tuples
     val parsedLines = lines.map(parseLine)
@@ -39,5 +30,13 @@ object MinTemperatures {
       println(s"$station minimum temparature : $formatTemp")
     }
     sc.stop()
+  }
+
+  def parseLine(line: String) = {
+    val fields = line.toString().split(",")
+    val stationId = fields(0)
+    val entryType = fields(2)
+    val temperature = fields(3).toFloat * 0.1f * (9.0f / 5.0f) + 32.0f
+    (stationId, entryType, temperature)
   }
 }

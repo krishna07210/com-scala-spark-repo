@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
 
 /**
@@ -13,8 +13,7 @@ object WordCount {
   def main(args: Array[String]): Unit = {
 
     println("********* Word Count Example ********")
-    val sparkConfig = new SparkConfiguration()
-    val sc: SparkContext = sparkConfig.localConfig("local", "WordCount")
+    val sc: SparkContext = SparkConfigs.localConfig("local", "WordCount")
     val threshold = 10
     val textFile = sc.textFile(CommonUtils.inputFile("book.txt"))
     /*

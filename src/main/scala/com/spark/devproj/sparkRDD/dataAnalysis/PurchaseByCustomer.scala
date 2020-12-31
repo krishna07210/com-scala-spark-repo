@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 
 /**
  * Created by krish on 14-04-2020.
@@ -18,9 +18,7 @@ object PurchaseByCustomer {
       val invoiceAmt = fields(2).toFloat
       (customerID, itemID, invoiceAmt)
     }
-
-    val sparkConfig = new SparkConfiguration()
-    val sc = sparkConfig.localConfig("local", "PurchaseByCustomer")
+    val sc = SparkConfigs.localConfig("local", "PurchaseByCustomer")
     val orderData = sc.textFile(CommonUtils.inputFile("customer-orders.csv"))
     val invoiceData = orderData.map(parseOrderData)
     val purchaseData = invoiceData.map(x => (x._1.toInt, x._3))

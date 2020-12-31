@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
@@ -22,16 +22,15 @@ object DegreeOfSepration {
   type BFSNode = (Int, BFSData) // A BFSNode has a heroID and the BFSData associated with it.
   val startCharacterID: Int = 5306 //SpiderMan
   val targetCharacterID: Int = 14 //ADAM 3,031 (who?)
-  var hitCounter: Option[LongAccumulator] = None //We make our accumulator a "global" Option so we can reference it in a mapper later.
   val grayColor = "GRAY"
   val whiteColor = "WHITE"
   val blackColor = "BLACK"
+  var hitCounter: Option[LongAccumulator] = None //We make our accumulator a "global" Option so we can reference it in a mapper later.
 
   def main(args: Array[String]): Unit = {
 
     Logger.getLogger("org").setLevel(Level.ERROR)
-    val conf = new SparkConfiguration()
-    val sc = conf.localConfig("local", "DegreeOfSepration")
+    val sc = SparkConfigs.localConfig("local", "DegreeOfSepration")
     hitCounter = Some(sc.longAccumulator("Hit Counter"))
     var iterationRDD = createRDDinBFSFormat(sc)
     //iterationRDD.foreach(println)

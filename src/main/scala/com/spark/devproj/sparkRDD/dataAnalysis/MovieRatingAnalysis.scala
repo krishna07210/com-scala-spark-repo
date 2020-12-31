@@ -2,7 +2,7 @@ package com.spark.devproj.sparkRDD.dataAnalysis
 
 import java.nio.charset.CodingErrorAction
 
-import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
 
 import scala.io.Codec
@@ -66,8 +66,7 @@ object MovieRatingAnalysis {
   }
 
   def main(args: Array[String]): Unit = {
-    val sparkConfig = new SparkConfiguration()
-    val sc: SparkContext = sparkConfig.localConfig("local", "MovieRatingAnalysis")
+    val sc: SparkContext = SparkConfigs.localConfig("local", "MovieRatingAnalysis")
     val movieData = sc.textFile(CommonUtils.inputFile("u.data"))
     val moviesDatSet = movieData.map(parseMovieData)
     val movies = moviesDatSet.map(x => (x._2, 1))

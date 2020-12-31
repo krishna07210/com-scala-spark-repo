@@ -9,7 +9,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  * Details  :
  *
  */
-object map {
+object Map {
 
   def main(args: Array[String]): Unit = {
 
