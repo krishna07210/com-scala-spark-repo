@@ -14,7 +14,7 @@ object RatingsCounter {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sparkConfig = new SparkConf().setAppName("local").setMaster("RatingsCounter")
     val sc = new SparkContext(sparkConfig)
-    val lines = sc.textFile(CommonUtils.inputFile("udata.txt"))
+    val lines = sc.textFile(CommonUtils.getInputFilePath("udata.txt"))
     //    lines.foreach(println)
     val ratings = lines.map(x => x.toString().split("\t")(2))
     //    ratings.foreach(println)

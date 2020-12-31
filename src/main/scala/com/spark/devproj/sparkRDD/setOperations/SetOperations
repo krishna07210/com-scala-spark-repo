@@ -3,3 +3,10 @@ Set Operations which are performed on one RDD:
 
 -- sample
 -- distinct
+
+Set Operations which are performed on TWO RDDs:
+
+-- union
+-- intersection
+-- subtract
+-- cartesian products

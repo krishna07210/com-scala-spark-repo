@@ -19,7 +19,7 @@ object PurchaseByCustomer {
       (customerID, itemID, invoiceAmt)
     }
     val sc = SparkConfigs.localConfig("local", "PurchaseByCustomer")
-    val orderData = sc.textFile(CommonUtils.inputFile("customer-orders.csv"))
+    val orderData = sc.textFile(CommonUtils.getInputFilePath("customer-orders.csv"))
     val invoiceData = orderData.map(parseOrderData)
     val purchaseData = invoiceData.map(x => (x._1.toInt, x._3))
     //    purchaseData.foreach(x=> println(x._1 + "-" + x._2))

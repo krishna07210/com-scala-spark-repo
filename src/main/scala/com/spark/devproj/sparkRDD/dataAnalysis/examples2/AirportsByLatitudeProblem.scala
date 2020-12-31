@@ -26,7 +26,7 @@ object AirportsByLatitudeProblem {
 
     val airportsInUsa = sparkSession
       .sparkContext
-      .textFile(CommonUtils.getExamples2InputFile("airports.text"))
+      .textFile(CommonUtils.getInputFilePath("airports.text"))
       .filter(line => line.split(CommonUtils.COMMA_DELIMITER)(6)
         .replaceAll("\"", "")
         .toFloat > 40 & line.split(CommonUtils.COMMA_DELIMITER)(3).contains("\"United States\""))
@@ -34,7 +34,7 @@ object AirportsByLatitudeProblem {
         val splits = line.split(CommonUtils.COMMA_DELIMITER)
         splits(1) + "," + splits(6)
       })
-      .saveAsTextFile(CommonUtils.getExamples2OutputFile("airports-in-usa-latitude"))
+      .saveAsTextFile(CommonUtils.getOutputFilePath("airports-in-usa-latitude"))
     sparkSession.stop()
   }
 }

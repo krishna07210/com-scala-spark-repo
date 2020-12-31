@@ -1,4 +1,4 @@
-package com.spark.devproj.sparkRDD.transforms.map
+package com.spark.devproj.sparkRDD.transformations.maps
 
 import com.spark.devproj.config.CommonUtils
 import org.apache.spark.{SparkConf, SparkContext}
@@ -16,7 +16,7 @@ object Map {
     val sc: SparkContext = new SparkContext(new SparkConf()
       .setMaster("local[*]")
       .setAppName("mapExample"))
-    val mountEverest = sc.textFile(CommonUtils.inputFile("MountEverest.txt"))
+    val mountEverest = sc.textFile(CommonUtils.getInputFilePath("MountEverest.txt"))
 
     //1. Split the Mount Everest text into individual words
     val words = mountEverest.map(x => x.split(" "))

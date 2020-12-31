@@ -51,7 +51,7 @@ object MovieRatingAnalysis {
     // Create a Map of Ints to Strings, and populate it from u.item.
     var movieNames: Map[Int, String] = Map()
     try {
-      val lines = Source.fromFile(CommonUtils.inputFile("u.item")).getLines()
+      val lines = Source.fromFile(CommonUtils.getInputFilePath("u.item")).getLines()
       for (line <- lines) {
         var fields = line.split('|')
         if (fields.length > 1) {
@@ -66,7 +66,7 @@ object MovieRatingAnalysis {
 
   def main(args: Array[String]): Unit = {
     val sc: SparkContext = SparkConfigs.localConfig("local", "MovieRatingAnalysis")
-    val movieData = sc.textFile(CommonUtils.inputFile("u.data"))
+    val movieData = sc.textFile(CommonUtils.getInputFilePath("u.data"))
     val moviesDatSet = movieData.map(parseMovieData)
     val movies = moviesDatSet.map(x => (x._2, 1))
     val movieCount = movies.reduceByKey((x, y) => (x + y)).sortByKey()

@@ -46,13 +46,13 @@ object DiffWaysDataFrameCreation {
 
     println("3. Creating Spark DataFrame from CSV")
 
-    val csvDF = spark.read.csv(CommonUtils.inputFile("OrderData.csv"))
-    val csvDF2 = spark.sqlContext.read.csv(CommonUtils.inputFile("1800.csv"))
+    val csvDF = spark.read.csv(CommonUtils.getInputFilePath("OrderData.csv"))
+    val csvDF2 = spark.sqlContext.read.csv(CommonUtils.getInputFilePath("1800.csv"))
     csvDF.show()
     csvDF2.show()
 
     println("5. Creating from JSON file")
-    val jsonDF = spark.sqlContext.read.json(CommonUtils.inputFile("sample.json"))
+    val jsonDF = spark.sqlContext.read.json(CommonUtils.getInputFilePath("sample.json"))
     jsonDF.show()
   }
 }

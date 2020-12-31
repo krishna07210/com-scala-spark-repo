@@ -2,7 +2,7 @@ package com.spark.devproj.sparkDataframe.miscellaneous
 
 import java.util.Properties
 
-import com.spark.devproj.config.CommonUtils.inputFile
+import com.spark.devproj.config.CommonUtils
 import org.apache.log4j.Logger
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.{DataFrame, SparkSession}
@@ -23,7 +23,7 @@ object HelloSparkDataframe extends Serializable {
       .getOrCreate();
     logger.info("spark.config = " + spark.conf.getAll.toString())
 
-    val surveyDF: DataFrame = loadSurveyDF(spark, inputFile("survey_sample.csv"))
+    val surveyDF: DataFrame = loadSurveyDF(spark, CommonUtils.getInputFilePath("survey_sample.csv"))
     val partitionedSurveyDF = surveyDF.repartition(2)
     val countDF = countByCountry(partitionedSurveyDF)
     countDF.collect().foreach(r=>
@@ -55,6 +55,6 @@ object HelloSparkDataframe extends Serializable {
     spark.read
       .option("header", "true")
       .option("inferSchema", "true")
-      .csv(inputFile("survey_sample.csv"))
+      .csv(CommonUtils.getInputFilePath("survey_sample.csv"))
   }
 }

@@ -13,7 +13,7 @@ object MinTemperatures {
 
   def main(args: Array[String]) {
     val sc: SparkContext = SparkConfigs.localConfig("local", "MinTemperatures")
-    val lines = sc.textFile(CommonUtils.inputFile("1800.csv"))
+    val lines = sc.textFile(CommonUtils.getInputFilePath("1800.csv"))
     // Convert to (stationID, entryType, temperature) tuples
     val parsedLines = lines.map(parseLine)
     // Filter out all but TMIN entries

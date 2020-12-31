@@ -13,24 +13,13 @@ object CommonUtils {
   // a regular expression which matches commas but not commas within double quotations
   val COMMA_DELIMITER = ",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"
 
-  def getExamples2InputFile(fileName: String): String = {
-    val filePath: String = Constants.example2Source + fileName
-    return filePath
-  }
-  def inputFile(fileName: String): String = {
+  def getInputFilePath(fileName: String): String = {
     val filePath: String = Constants.inputSource + fileName
     return filePath
   }
 
-  def outputFile(fileName: String): String = {
+  def getOutputFilePath(fileName: String): String = {
     val filePath: String = Constants.outputSource + fileName
-    val directory = new Directory(new File(filePath))
-    directory.deleteRecursively()
-    return filePath
-  }
-
-  def getExamples2OutputFile(fileName: String): String = {
-    val filePath: String = Constants.example2Destination + fileName
     val directory = new Directory(new File(filePath))
     directory.deleteRecursively()
     return filePath

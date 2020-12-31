@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis.examples2
 
-import com.spark.devproj.config.CommonUtils.inputFile
+import com.spark.devproj.config.CommonUtils
 import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe
 import com.spark.devproj.sparkDatasets.miscellaneous.SurveyRecord
 import org.apache.log4j.Logger
@@ -14,7 +14,7 @@ object HelloRDD extends Serializable {
     val sparkAppConfig = new SparkConf().setAppName("HelloRDD").setMaster("local[3]")
     val sparkContext = new SparkContext(sparkAppConfig)
 
-    val linesRDD = sparkContext.textFile(inputFile("survey_sample.csv"))
+    val linesRDD = sparkContext.textFile(CommonUtils.getInputFilePath("survey_sample.csv"))
     val partitionedRDD = linesRDD.repartition(2)
 
     val colsRDD = partitionedRDD.map(lines => lines.split(",").map(_.trim))

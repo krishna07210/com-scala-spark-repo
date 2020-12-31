@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkSQL.miscellaneous
 
-import com.spark.devproj.config.CommonUtils.inputFile
+import com.spark.devproj.config.CommonUtils
 import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.logger
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
@@ -16,7 +16,7 @@ object HelloSparkSQL extends Serializable {
     val surveyDF: Dataset[Row] = spark.read
       .option("header", "true")
       .option("inferSchema", "true")
-      .csv(inputFile("survey_sample.csv"))
+      .csv(CommonUtils.getInputFilePath("survey_sample.csv"))
 
     surveyDF.createOrReplaceTempView("survey_tb1")
     spark.sql("select Country, count(1) as count from survey_tb1 where Age<40 group by Country")

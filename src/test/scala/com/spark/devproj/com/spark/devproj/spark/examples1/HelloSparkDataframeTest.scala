@@ -1,6 +1,6 @@
 package com.spark.devproj.com.spark.devproj.spark.examples1
 
-import com.spark.devproj.config.CommonUtils.inputFile
+import com.spark.devproj.config.CommonUtils
 import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.{countByCountry, loadSurveyDF}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FunSuite}
@@ -23,13 +23,13 @@ class HelloSparkDataframeTest extends FunSuite with BeforeAndAfterAll {
   }
 
   test("Data file Loading") {
-    val surveyDF: DataFrame = loadSurveyDF(spark, inputFile("survey_sample.csv"))
+    val surveyDF: DataFrame = loadSurveyDF(spark, CommonUtils.getInputFilePath("survey_sample.csv"))
     val rCount: Long = surveyDF.count()
     assert(rCount == 9, "record count should be 9")
   }
 
   test("Count by Country"){
-    val surveyDF: DataFrame = loadSurveyDF(spark, inputFile("survey_sample.csv"))
+    val surveyDF: DataFrame = loadSurveyDF(spark, CommonUtils.getInputFilePath("survey_sample.csv"))
     val countDF: DataFrame = countByCountry(surveyDF)
     val countryMap = new mutable.HashMap[String,Long]
     countDF.collect().foreach(rec => countryMap.put(rec.getString(0),rec.getLong(1)))

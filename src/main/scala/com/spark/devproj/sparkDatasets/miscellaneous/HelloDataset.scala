@@ -2,7 +2,7 @@ package com.spark.devproj.sparkDatasets.miscellaneous
 
 import java.util.Properties
 
-import com.spark.devproj.config.CommonUtils.inputFile
+import com.spark.devproj.config.CommonUtils
 import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.logger
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
@@ -24,7 +24,7 @@ object HelloDataset {
     val rawDF: Dataset[Row] = spark.read
       .option("header", "true")
       .option("inferSchema", "true")
-      .csv(inputFile("survey_sample.csv"))
+      .csv(CommonUtils.getInputFilePath("survey_sample.csv"))
 
     import spark.implicits._
     //Here we are converting the Row object to specific Object format

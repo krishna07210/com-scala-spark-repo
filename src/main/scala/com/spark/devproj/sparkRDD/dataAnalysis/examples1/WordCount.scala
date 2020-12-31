@@ -15,7 +15,7 @@ object WordCount {
     println("********* Word Count Example ********")
     val sc: SparkContext = SparkConfigs.localConfig("local", "WordCount")
     val threshold = 10
-    val textFile = sc.textFile(CommonUtils.inputFile("book.txt"))
+    val textFile = sc.textFile(CommonUtils.getInputFilePath("book.txt"))
     /*
      Example 1:  Word Count
     val words = textFile.flatMap(x=> x.split("\\W+"))

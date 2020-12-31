@@ -11,7 +11,7 @@ object SparkCommands {
 
   def main(args: Array[String]): Unit = {
     val sc: SparkContext = SparkConfigs.localConfig("local", "SparkCommand")
-    val data = sc.textFile(CommonUtils.inputFile("udata.txt"))
+    val data = sc.textFile(CommonUtils.getInputFilePath("udata.txt"))
     //    data.foreach(println)
     //Create an RDD through Parallelized Collection
     val no = Array(1, 2, 3, 4, 5, 6, 7)

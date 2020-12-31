@@ -18,7 +18,7 @@ object  FriendsByAge {
 
   def main(args: Array[String]): Unit = {
     val sc: SparkContext = SparkConfigs.localConfig("local", "FriendsByAge");
-    val lines = sc.textFile(CommonUtils.inputFile("fakefriends.csv"))
+    val lines = sc.textFile(CommonUtils.getInputFilePath("fakefriends.csv"))
     val rawRDD = lines.map(parseLine)
     val totalsByAge = rawRDD.mapValues(x => (x, 1)).reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
     totalsByAge.foreach(println)

@@ -64,7 +64,7 @@ object DegreeOfSepration {
   }
 
   def createRDDinBFSFormat(sc: SparkContext): RDD[BFSNode] = {
-    val inputfile = sc.textFile(CommonUtils.inputFile("Marvel-graph.txt"))
+    val inputfile = sc.textFile(CommonUtils.getInputFilePath("Marvel-graph.txt"))
     return inputfile.map(convertLineToBFS)
   }
 

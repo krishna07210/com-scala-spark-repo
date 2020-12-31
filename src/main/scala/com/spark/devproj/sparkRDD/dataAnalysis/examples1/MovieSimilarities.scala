@@ -26,7 +26,7 @@ object MovieSimilarities {
     val movieName = loadMovieName()
 
     //Map ratings to key / value pairs: user ID => movie ID, rating
-    val ratings = sc.textFile(CommonUtils.inputFile("ml-100k/u.data"))
+    val ratings = sc.textFile(CommonUtils.getInputFilePath("ml-100k/u.data"))
       .map(line => line.split("\t"))
       .map(rec => (rec(0).toInt, (rec(1).toInt, rec(2).toDouble))) //.filter(x => x._1 == 4)
     val joinedRating = ratings.join(ratings)
@@ -72,7 +72,7 @@ object MovieSimilarities {
     codec.onMalformedInput(CodingErrorAction.REPLACE)
     codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
 
-    val lines = Source.fromFile(CommonUtils.inputFile("ml-100k/u.item")).getLines()
+    val lines = Source.fromFile(CommonUtils.getInputFilePath("ml-100k/u.item")).getLines()
     var movieNames: Map[Int, String] = Map()
 
     for (line <- lines) {
