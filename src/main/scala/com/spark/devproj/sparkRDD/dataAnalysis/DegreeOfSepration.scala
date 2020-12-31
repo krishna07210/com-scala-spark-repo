@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{Common, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
@@ -65,7 +65,7 @@ object DegreeOfSepration {
   }
 
   def createRDDinBFSFormat(sc: SparkContext): RDD[BFSNode] = {
-    val inputfile = sc.textFile(Common.inputFile("Marvel-graph.txt"))
+    val inputfile = sc.textFile(CommonUtils.inputFile("Marvel-graph.txt"))
     return inputfile.map(convertLineToBFS)
   }
 

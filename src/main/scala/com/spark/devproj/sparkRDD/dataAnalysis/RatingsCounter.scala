@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.Common
+import com.spark.devproj.config.CommonUtils
 import org.apache.log4j._
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -14,7 +14,7 @@ object RatingsCounter {
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sparkConfig = new SparkConf().setAppName("local").setMaster("RatingsCounter")
     val sc = new SparkContext(sparkConfig)
-    val lines = sc.textFile(Common.inputFile("udata.txt"))
+    val lines = sc.textFile(CommonUtils.inputFile("udata.txt"))
     //    lines.foreach(println)
     val ratings = lines.map(x => x.toString().split("\t")(2))
     //    ratings.foreach(println)

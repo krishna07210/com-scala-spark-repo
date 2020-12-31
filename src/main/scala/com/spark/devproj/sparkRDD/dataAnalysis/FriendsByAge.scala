@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{Common, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
 import com.spark.devproj.constants.Constants
 import org.apache.spark.SparkContext
 
@@ -20,7 +20,7 @@ object  FriendsByAge {
   def main(args: Array[String]): Unit = {
     val sparkconfig = new SparkConfiguration()
     val sc: SparkContext = sparkconfig.localConfig("local", "FriendsByAge");
-    val lines = sc.textFile(Common.inputFile("fakefriends.csv"))
+    val lines = sc.textFile(CommonUtils.inputFile("fakefriends.csv"))
     val rawRDD = lines.map(parseLine)
     val totalsByAge = rawRDD.mapValues(x => (x, 1)).reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
     totalsByAge.foreach(println)

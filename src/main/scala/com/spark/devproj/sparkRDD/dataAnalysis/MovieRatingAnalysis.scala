@@ -2,7 +2,7 @@ package com.spark.devproj.sparkRDD.dataAnalysis
 
 import java.nio.charset.CodingErrorAction
 
-import com.spark.devproj.config.{Common, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
 import org.apache.spark.SparkContext
 
 import scala.io.Codec
@@ -52,7 +52,7 @@ object MovieRatingAnalysis {
     // Create a Map of Ints to Strings, and populate it from u.item.
     var movieNames: Map[Int, String] = Map()
     try {
-      val lines = Source.fromFile(Common.inputFile("u.item")).getLines()
+      val lines = Source.fromFile(CommonUtils.inputFile("u.item")).getLines()
       for (line <- lines) {
         var fields = line.split('|')
         if (fields.length > 1) {
@@ -68,7 +68,7 @@ object MovieRatingAnalysis {
   def main(args: Array[String]): Unit = {
     val sparkConfig = new SparkConfiguration()
     val sc: SparkContext = sparkConfig.localConfig("local", "MovieRatingAnalysis")
-    val movieData = sc.textFile(Common.inputFile("u.data"))
+    val movieData = sc.textFile(CommonUtils.inputFile("u.data"))
     val moviesDatSet = movieData.map(parseMovieData)
     val movies = moviesDatSet.map(x => (x._2, 1))
     val movieCount = movies.reduceByKey((x, y) => (x + y)).sortByKey()

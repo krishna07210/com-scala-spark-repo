@@ -1,6 +1,6 @@
 package com.spark.devproj.sparksql
 
-import com.spark.devproj.config.Common
+import com.spark.devproj.config.CommonUtils
 import com.spark.devproj.constants.Constants
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
@@ -48,13 +48,13 @@ object DiffWaysDataFrameCreation {
 
     println("3. Creating Spark DataFrame from CSV")
 
-    val csvDF = spark.read.csv(Common.inputFile("OrderData.csv"))
-    val csvDF2 = spark.sqlContext.read.csv(Common.inputFile("1800.csv"))
+    val csvDF = spark.read.csv(CommonUtils.inputFile("OrderData.csv"))
+    val csvDF2 = spark.sqlContext.read.csv(CommonUtils.inputFile("1800.csv"))
     csvDF.show()
     csvDF2.show()
 
     println("5. Creating from JSON file")
-    val jsonDF = spark.sqlContext.read.json(Common.inputFile("sample.json"))
+    val jsonDF = spark.sqlContext.read.json(CommonUtils.inputFile("sample.json"))
     jsonDF.show()
   }
 }

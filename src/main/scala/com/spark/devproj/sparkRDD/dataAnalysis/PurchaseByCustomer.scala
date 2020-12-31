@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{Common, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
 
 /**
  * Created by krish on 14-04-2020.
@@ -21,7 +21,7 @@ object PurchaseByCustomer {
 
     val sparkConfig = new SparkConfiguration()
     val sc = sparkConfig.localConfig("local", "PurchaseByCustomer")
-    val orderData = sc.textFile(Common.inputFile("customer-orders.csv"))
+    val orderData = sc.textFile(CommonUtils.inputFile("customer-orders.csv"))
     val invoiceData = orderData.map(parseOrderData)
     val purchaseData = invoiceData.map(x => (x._1.toInt, x._3))
     //    purchaseData.foreach(x=> println(x._1 + "-" + x._2))

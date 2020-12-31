@@ -1,6 +1,6 @@
 package com.spark.devproj.sparkRDD.dataAnalysis
 
-import com.spark.devproj.config.{Common, SparkConfiguration}
+import com.spark.devproj.config.{CommonUtils, SparkConfiguration}
 import org.apache.spark.SparkContext
 import scala.math.min
 
@@ -21,7 +21,7 @@ object MinTemperatures {
   def main(args: Array[String]) {
     val sparkConfig = new SparkConfiguration();
     val sc: SparkContext = sparkConfig.localConfig("local", "MinTemperatures")
-    val lines = sc.textFile(Common.inputFile("1800.csv"))
+    val lines = sc.textFile(CommonUtils.inputFile("1800.csv"))
     // Convert to (stationID, entryType, temperature) tuples
     val parsedLines = lines.map(parseLine)
     // Filter out all but TMIN entries
