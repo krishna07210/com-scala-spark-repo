@@ -1,0 +1,12 @@
+Aggregation:
+***********
+
+• When our dataset is described in the format of key-value pairs, it is quite
+  common that we would like to aggregate statistics across all elements with the same key.
+• We have looked at the reduce actions on regular RDDs, and there is a similar operation for pair RDD,
+  it is called reduceByKey.
+• reduceByKey runs several parallels reduce operations, one for each key in the dataset, where each
+  operation combines values that have the same key.
+• Considering input datasets could have a huge number of keys, reduceByKey operation is not implemented
+  as an action that returns a value to the driver program.
+  Instead, it returns a new RDD consisting of each key and the reduced value for that key.

@@ -1,1 +1,15 @@
-This package contains the RDD Actions Examples
+This package contains the RDD Actions Examples:
+
+Actions are the operations which will return a final value to the Driver program or persist in the data
+to an external storage system.
+
+Actions force the evaluation of the transformations required for the RDD they were called on
+
+Common Actions in Spark:
+
+-- collect
+-- count
+-- countByValue
+-- take
+-- saveAsTextFile
+-- reduce

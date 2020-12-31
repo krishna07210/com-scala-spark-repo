@@ -1,1 +1,20 @@
 This package contains the Spark RDD Optimization Techniques
+***********************************************************
+
+Sometimes we would like to call actions on the same RDD multiple times.
+If we do it naively, RDDs and all of its dependencies are computed are recomputed each time an action
+is called on the RDD.
+This can be very expensive, especially for some iterative algorithms, which would call actions on
+the same dataset many times.
+
+If you want to reuse an RDD in multiple actions, you can also ask Spark to
+persist by calling the persist() method on the RDD.
+When you persist an RDD, the first time it is computed in an action, it will
+be kept in memory across the nodes.
+
+
+methods:
+    -- persist()
+    RDD.persist(StorageLevel level)
+    RDD.cache() = RDD.persist (MEMORY_ONLY)
+    MEMORY_ONLY, MEMORY_AND_DISK,

@@ -32,11 +32,11 @@ object AirportsInUsaProblem {
       .textFile(CommonUtils.getInputFilePath("airports.text"))
       .filter(line => line.split(CommonUtils.COMMA_DELIMITER)(3).contains("\"United States\""))
 
-    val airpirtNamesAndCityName = airportsInUsa.map(line => {
+    val airportNamesAndCityName = airportsInUsa.map(line => {
       val splits = line.split(CommonUtils.COMMA_DELIMITER)
       splits(1) + "," + splits(2)
     })
-    airpirtNamesAndCityName.saveAsTextFile(CommonUtils.getOutputFilePath("airports-in-usa"))
+    airportNamesAndCityName.saveAsTextFile(CommonUtils.getOutputFilePath("airports-in-usa"))
     sparkSession.stop()
   }
 }

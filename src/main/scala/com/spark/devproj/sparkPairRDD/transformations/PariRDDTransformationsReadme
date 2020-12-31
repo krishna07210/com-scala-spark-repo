@@ -1,0 +1,8 @@
+Transformations on Pair RDD
+***************************
+
+• Pair RDDs are allowed to use all the transformations available to regular
+  RDDs, and thus support the same functions as regular RDDs.
+• Since pair RDDs contain tuples, we need to pass functions that operate on
+  tuples rather than on individual elements.
+

@@ -19,9 +19,15 @@ object UnionLogProblem {
 
   def main(args: Array[String]): Unit = {
     val sparkContext: SparkContext =
-      new SparkContext(SparkConfigs.getLocalSparkConf("Flat-Map"))
-    val RD0 = sparkContext.textFile(CommonUtils.getInputFilePath("book.txt"))
+      new SparkContext(SparkConfigs.getLocalSparkConf("UnionLogProblem"))
+    val julyLogs = sparkContext.textFile(CommonUtils.getInputFilePath("nasa_19950701.tsv"))
+    val augustLogs = sparkContext.textFile(CommonUtils.getInputFilePath("nasa_19950801.tsv"))
+    val aggregatedLogs = julyLogs.union(augustLogs).filter(line => isNotHeader(line))
+    aggregatedLogs.sample(withReplacement = true, fraction = 0.1)
+      .foreach(println)
 
-
+    sparkContext.stop()
   }
+
+  def isNotHeader(line: String): Boolean = !(line.startsWith("host") && line.contains("bytes"))
 }

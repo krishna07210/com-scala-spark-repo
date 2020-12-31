@@ -6,7 +6,7 @@ import org.apache.spark.SparkContext
 object Filter {
   def main(args: Array[String]): Unit = {
     val sparkContext: SparkContext =
-      new SparkContext(SparkConfigs.getLocalSparkConf("Flat-Map"))
+      new SparkContext(SparkConfigs.getLocalSparkConf("Filter"))
 
     val RD0 = sparkContext.textFile(CommonUtils.getInputFilePath("book.txt"))
     val RD1 = RD0.flatMap(rec => rec.split(" "))

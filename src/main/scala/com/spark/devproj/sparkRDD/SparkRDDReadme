@@ -1,0 +1,20 @@
+RDD:  Resilient Distributed Datasets
+************************************
+
+• RDDs can contain any types of objects, including user-defined classes.
+• An RDD is simply a capsulation around a very large dataset. In Spark all work is expressed as
+  either creating new RDDs, transforming existing RDDs, or calling operations on RDDs to compute a result.
+• Under the hood, Spark will automatically distribute the data contained in RDDs across your cluster
+  and parallelize the operations you perform on them.
+
+RDDs are Distributed
+
+• Each RDD is broken into multiple pieces called partitions,and these partitions are divided across
+  the clusters.
+• This partitioning process is done automatically by Spark, so you don’t need to worry about all
+  the details that how your data is partitioned across the cluster.
+
+RDDs are Immutable
+• They cannot be changed after they are created.
+• Immutability rules out a significant set of potential problems due to updates from multiple threads at once.
+• Immutability makes it safe to share RDDs across processes.

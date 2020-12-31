@@ -1,0 +1,16 @@
+Pair RDD
+********8
+
+A Pair RDDs is a particular type of RDD that can store key-value pairs.
+
+
+• A lot of datasets we see in real life examples are usually key value pairs.
+• Examples:
+    – A dataset which contains passport IDs and the names of the passport holders.
+    – A dataset contains course names and a list of students that enrolled in the courses.
+• The typical pattern of this kind of dataset is that is each row is one key maps to one value
+  or multiple values.
+• Spark provides a data structure called Pair RDD instead of regular RDDs,which makes working with
+  this kind of data more simpler and more efficient.
+• A Pair RDDs is a particular type of RDD that can store key-value pairs.
+• Pair RDDs are useful building blocks in many spark programs.
