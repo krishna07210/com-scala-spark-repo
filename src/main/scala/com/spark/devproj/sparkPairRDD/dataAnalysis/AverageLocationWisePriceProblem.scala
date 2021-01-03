@@ -4,8 +4,6 @@ import org.apache.log4j.{Level, Logger}
 import com.spark.devproj.config.{CommonUtils, SparkConfigs}
 import org.apache.spark.SparkContext
 
-case class AvgCount(count: Int, total: Double)
-
 object AverageLocationWisePriceProblem {
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org").setLevel(Level.ERROR)

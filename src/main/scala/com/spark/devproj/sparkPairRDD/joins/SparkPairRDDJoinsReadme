@@ -1,0 +1,6 @@
+Join Operations:
+***************
+
+• Join operation allows us to join two RDDs together which is probably one of the most common
+  operations on a Pair RDD.
+• Joins types: leftOuterJoin, rightOuterJoin, crossJoin,innerJoin,etc.

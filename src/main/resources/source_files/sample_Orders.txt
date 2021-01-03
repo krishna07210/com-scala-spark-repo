@@ -1,0 +1,18 @@
+OrderId|OrderItem|OrderDate|OrderPrice|ItemQuantity
+1|Gas|2018-01-17|1895|1
+1|Air Conditioners|2018-01-28|19000|3
+1|Television|2018-01-11|45000|2
+2|Gas|2018-01-17|1895|1
+2|Air Conditioners|2017-01-28|19000|3
+2|Gas|2016-01-17|2300|1
+1|Bottle|2018-03-24|45|10
+1|Cooking oil|2018-04-22|100|3
+3|Inverter|2015-11-02|29000|1
+3|Gas|2014-01-09|2300|1
+3|Television|2018-01-17|45000|2
+4|Gas|2018-01-17|2300|1
+4|Television$$|2018-01-17|45000|2
+5|Medicine|2016-03-14|23.50|8
+5|Cough Syrup|2016-01-28|190|1
+5|Ice Cream|2014-09-23|300|7
+5|Pasta|2015-06-30|65|2
