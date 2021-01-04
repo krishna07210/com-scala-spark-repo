@@ -1,0 +1,10 @@
+Spark SQL join Vs Core Spark join
+#########################################################################################
+
+Spark SQL supports the same basic join types as core spark.
+Spark SQL Catalyst Optimizer can do more of the heavy lifting for us to optimize the join performance.
+Using Spark SQL join, we have to give up some of our control.
+For Example: Spark SQL can sometimes push down or re-order operations to make the joins more efficient.
+The downside is that we don't have controls over the partitioner for Datasets, so we can't
+manually avoid shuffles as we did with spark core joins.
+

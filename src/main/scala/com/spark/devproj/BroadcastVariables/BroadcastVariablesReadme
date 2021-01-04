@@ -1,0 +1,15 @@
+Broadcast Variables:
+*******************
+• Broadcast variables allow the programmer to keep a readonly variable cached on each machine rather
+  than shipping a copy of it with tasks.
+• They can be used, for example, to give every node, a copy of a large input dataset, in an efficient
+  manner.
+• All broadcast variables will be kept at all the worker nodes for use in one or more Spark operations.
+
+Procedures of using Broadcast Variables
+• Create a Broadcast variable T by calling SparkContext.broadcast() on an object of type T.
+– The Broadcast variable can be any type as long as it’s serializable because the broadcast needs
+  to passed from the driver program to all the worker in the Spark cluster across the wire.
+• The variable will be sent to each node only once and should be treated as read-only, meaning
+  updates will not be propagated to other nodes.
+• The value of the broadcast can be accessed by calling the value method in each node.

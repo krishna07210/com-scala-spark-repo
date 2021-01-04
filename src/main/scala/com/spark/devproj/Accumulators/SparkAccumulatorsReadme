@@ -1,0 +1,26 @@
+Accumulators:
+************
+
+Accumulators are variables that are used for aggregating information across the executors.
+For example, we can calculate how many records are corrupted or count events that occur during
+job execution for debugging purpose.
+
+
+• Tasks on worker nodes cannot access the accumulator’s value.
+• Accumulators are write-only variables.
+• This allows accumulators to be implemented efficiently, without having to communicate every update.
+
+Alternative to Accumulators:
+• Using accumulator is not the only solution to solve this problem.
+• It is possible to aggregate values from an entire RDD back to the driver program using actions
+  like reduce or reduceByKey.
+• But sometimes we prefer a simple way to aggregate values that, in the process of transforming a
+  RDD, are generated at a different scale or granularity than that of the RDD itself.
+
+
+Different Accumulator Types:
+****************************
+• Out of the box, Spark supports several accumulators of types such as Double and Long.
+• Spark also allows users to define custom accumulator types and custom aggregation operations
+  such as finding the maximum of the accumulated values instead of adding them.
+• You will need to extend the AccumulatorV2 abstract class to define your custom accumulators.
