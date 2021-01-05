@@ -28,5 +28,4 @@ object SparkConfigs {
     props.forEach((k, v) => conf.set(k.toString, v.toString))
     return conf
   }
-
 }
