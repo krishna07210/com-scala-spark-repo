@@ -1,0 +1,11 @@
+Working with DataFrame Row:
+
+We have two types of methods to Transform the data.
+
+1. High-Level Methods.
+2. Low-Level Methods.
+
+
+- We use High-level methods when your DataFrame got Schema.
+- When DataFrame don't have structure we use Low-level methods because we don't have
+  column so will process the Row itself.

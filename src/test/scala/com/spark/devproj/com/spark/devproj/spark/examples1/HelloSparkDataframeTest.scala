@@ -1,7 +1,7 @@
 package com.spark.devproj.com.spark.devproj.spark.examples1
 
 import com.spark.devproj.config.CommonUtils
-import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.{countByCountry, loadSurveyDF}
+import com.spark.devproj.sparkDataframeAPIs.miscellaneous.HelloSparkDataframe.{countByCountry, loadSurveyDF}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FunSuite}
 

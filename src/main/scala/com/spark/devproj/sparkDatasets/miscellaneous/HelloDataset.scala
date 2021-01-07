@@ -2,18 +2,21 @@ package com.spark.devproj.sparkDatasets.miscellaneous
 
 import java.util.Properties
 
+import com.spark.devproj.CaseClasses.SurveyRecord
 import com.spark.devproj.config.CommonUtils
-import com.spark.devproj.sparkDataframe.miscellaneous.HelloSparkDataframe.logger
+import com.spark.devproj.sparkDataframeAPIs.aggregations.AggregationDemo.getClass
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 import scala.io.Source
 
 
-case class SurveyRecord(Age: Int, Gender: String, Country: String, state: String)
-
-
 object HelloDataset {
+
+  Logger.getLogger("org").setLevel(Level.ERROR)
+  @transient lazy val logger: Logger = Logger.getLogger(getClass.getName);
+
   def main(args: Array[String]): Unit = {
     logger.info("Starting Hello Spark")
     val spark = SparkSession.builder()
