@@ -1,7 +1,6 @@
 package com.spark.devproj.sparkDataframeAPIs.joins
 
 import com.spark.devproj.config.SparkConfigs
-import com.spark.devproj.sparkDataframeAPIs.aggregations.WindowingDemo.getClass
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 
@@ -10,7 +9,7 @@ object SparkJoinDemo {
     Logger.getLogger("org").setLevel(Level.ERROR)
     @transient lazy val logger: Logger = Logger.getLogger(getClass.getName);
     val spark = SparkSession.builder()
-      .config(SparkConfigs.getLocalSparkConf("SparkSchemaDemo"))
+      .config(SparkConfigs.getLocalSparkConf("SparkJoinDemo"))
       .getOrCreate()
 
     val ordersList = List(
@@ -38,5 +37,18 @@ object SparkJoinDemo {
     )
     val productDF = spark.createDataFrame(productList).toDF("prod_id", "prod_name", "list_price", "qty")
 
+    //column ambiguous handle
+    val productRenamedDF = productDF.withColumnRenamed("qty", "reorder_qty")
+    val joinType ="inner"
+
+    val joinExpr = orderDF.col("prod_id") === productDF.col("prod_id")
+    //    orderDF.join(productDF, joinExpr, "inner")
+    //      .select("order_id", "prod_name", "unit_price", "qty")
+    //      .show()
+
+    orderDF.join(productRenamedDF, joinExpr, joinType)
+      .drop(productRenamedDF.col("prod_id"))
+      .select("order_id", "prod_id", "prod_name", "unit_price", "qty")
+      .show()
   }
 }
