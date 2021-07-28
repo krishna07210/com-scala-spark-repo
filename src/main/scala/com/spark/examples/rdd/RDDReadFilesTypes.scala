@@ -44,7 +44,6 @@ object RDDReadFilesTypes {
     //      println(f)
     //    })
 
-
     println("##read whole text files")
     val rddWhole: RDD[(String, String)] = sparkSession.sparkContext.wholeTextFiles(CommonUtils.getInputFilePath("1800*.csv"));
     rddWhole.foreach(f => {

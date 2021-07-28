@@ -44,8 +44,5 @@ object DFReadFilesTypes {
       .load()
     df.printSchema()
     df.show(3)
-
-
   }
-
 }
